@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block estilos %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    .card-img-top {
+        object-fit: cover;
+        height: 200px;
+    }
+    .card {
+        margin-bottom: 20px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        {% for p in publicaciones %}
+        <div class="col-md-4">
+            <div class="card shadow-sm">
+                {% if p.portada %}
+                <img src="{{ p.portada.url }}" class="card-img-top" alt="Portada de {{ p.titulo }}">
+                {% endif %}
+                <div class="card-body" onclick="window.location.href='{% url 'proyectoDetalle' p.id%}'">
+                    <h5 class="card-title">{{ p.titulo }}</h5>
+                    <p class="card-text">{{ p.descripcion }}</p>
+                    <p class="text-muted small">Publicado el {{ p.fecha_creacion|date:"d/m/Y H:i" }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% endblock %}

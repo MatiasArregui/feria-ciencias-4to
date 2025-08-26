@@ -1,0 +1,15 @@
+#Cache de compilacion
+.vscode
+__pycache__
+
+#Entorno virtual
+pyvenv.cfg
+Lib
+Scripts
+Include
+entorno
+
+#.idea
+.idea
+
+
