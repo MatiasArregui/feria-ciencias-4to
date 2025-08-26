@@ -7,8 +7,34 @@
         object-fit: cover;
         height: 200px;
     }
+
     .card {
         margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .card-body {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .card-text {
+        height: 4.5em; /* Aproximadamente 3 líneas */
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col-md-6 {
+        display: flex;
     }
 </style>
 {% endblock %}
@@ -17,15 +43,15 @@
 <div class="container mt-4">
     <div class="row">
         {% for p in publicaciones %}
-        <div class="col-md-4">
+        <div class="col-md-5 col-12 mx-auto mb-5">
             <div class="card shadow-sm">
                 {% if p.portada %}
                 <img src="{{ p.portada.url }}" class="card-img-top" alt="Portada de {{ p.titulo }}">
                 {% endif %}
-                <div class="card-body" onclick="window.location.href='{% url 'proyectoDetalle' p.id%}'">
+                <div class="card-body" onclick="window.location.href='{% url 'proyectoDetalle' p.id %}'">
                     <h5 class="card-title">{{ p.titulo }}</h5>
-                    <p class="card-text">{{ p.descripcion }}</p>
-                    <p class="text-muted small">Publicado el {{ p.fecha_creacion|date:"d/m/Y H:i" }}</p>
+                    <p class="card-text">{{ p.descripcion|truncatechars:150 }}</p>
+                    <p class="text-muted small">Publicado el {{ p.fecha_creacion|date:"d/m/Y" }}</p>
                 </div>
             </div>
         </div>
@@ -36,3 +62,4 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 {% endblock %}
+

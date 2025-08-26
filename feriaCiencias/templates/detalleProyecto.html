@@ -52,7 +52,7 @@
 <div class="container py-5">
     <div class="text-center mb-4">
         <h1 class="display-5">{{ proyecto.titulo }}</h1>
-        <p class="text-muted">Publicado el {{ proyecto.fecha_creacion|date:"d/m/Y H:i" }}</p>
+        <p class="text-muted">Publicado el {{ proyecto.fecha_creacion|date:"d/m/Y" }}</p>
     </div>
 
     {% if proyecto.portada %}
