@@ -25,6 +25,10 @@
         footer {
             font-size: 0.9rem;
         }
+
+        .header-buttons a {
+            margin-right: 0.5rem;
+        }
     </style>
 
     {% block estilos %}
@@ -35,9 +39,15 @@
     <!-- 🔬 Header institucional -->
     <header class="bg-primary text-white py-3 shadow-sm">
         <div class="container">
-            <div class="text-center text-lg-start" onclick="window.location.href='{% url 'proyectos' %}'" style="cursor: pointer;">
+            <div class="text-center text-lg-start">
                 <h1 class="h3 mb-0">🔬 Feria de Ciencias 2025</h1>
                 <p class="mb-0 small">Escuela PROA Mina Clavero · Celebrando el conocimiento y la creatividad</p>
+
+                <!-- ✨ Botones elegantes -->
+                <div class="header-buttons mt-3">
+                    <a href="{% url 'proyectos' %}" class="btn btn-light btn-sm fw-bold shadow-sm">📁 Ver todos los proyectos</a>
+                    <a href="{% url 'proyectoDetalleGuia' %}" class="btn btn-outline-light btn-sm fw-bold shadow-sm">📘 Guía informativa</a>
+                </div>
             </div>
         </div>
     </header>
@@ -60,3 +70,4 @@
 
 </body>
 </html>
+

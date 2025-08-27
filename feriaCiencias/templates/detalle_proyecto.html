@@ -1,0 +1,195 @@
+{% extends "base.html" %}
+
+{% block estilos %}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+    .portada {
+        max-height: 450px;
+        object-fit: cover;
+        width: 100%;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        margin-bottom: 30px;
+    }
+    .galeria-img {
+        height: 200px;
+        object-fit: cover;
+        width: 100%;
+        border-radius: 8px;
+        transition: transform 0.3s ease;
+        cursor: pointer;
+    }
+    .galeria-img:hover {
+        transform: scale(1.03);
+    }
+    .card-galeria {
+        border: none;
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 10px;
+    }
+    .descripcion {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: #343a40;
+    }
+</style>
+<style>
+    .titulo-galeria {
+        font-size: 1.25rem; /* base para móviles */
+    }
+
+    @media (min-width: 768px) {
+        .titulo-galeria {
+            font-size: 1.75rem; /* tamaño mayor en tablets y desktop */
+        }
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-4">
+        <h1 class="display-5">Proyecto Feria de Ciencias</h1>
+        <p class="text-muted">Guía Informativa</p>
+    </div>
+
+   <img src="https://cdn-media-0.freecodecamp.org/2022/12/main-image.png" alt="Portada del proyecto" class="portada">
+
+
+    <div class="descripcion mb-5 px-3 py-4 bg-light rounded shadow-sm">
+        <h4 class="mb-3 text-primary">¿Qué es un wireframe?</h4>
+        <div  style="white-space: word-wrap: break-word;">
+            <p>Un wireframe es un diagrama visual que esboza el esqueleto de un proyecto o pieza tecnológica. A veces se conoce como esquema de la página o plano de la pantalla y muestra cómo se relacionan los elementos entre sí y cómo están estructurados. 
+                Los wireframes pueden utilizarse para comunicar la estructura general de una página o aplicación de forma simplificada y crear diseños coherentes que satisfagan las necesidades del usuario. Utiliza una herramienta para hacer wireframes para crear fácilmente uno para tus próximos diseños o proyectos.
+                Los desarrolladores utilizan un wireframe para visualizar la funcionalidad de una aplicación antes de pasar a las fases de diseño técnico. Pueden ver cómo quieren que funcione y qué recursos necesitan para hacerlo realidad.
+            </p>
+        </div>
+        <h5 class="mb-3 text-primary">¿Qué es un wireframe de un sitio web?</h4>
+        <div  style="white-space: word-wrap: break-word;">
+            <p>
+                Un wireframe de un sitio web organiza los elementos visuales de cada página de un sitio web. Es más detallado que un wireframe de baja calidad y sirve de prototipo para el diseño final. Ofrece a los diseñadores la oportunidad de ver exactamente cómo será la interfaz de usuario y cómo interactuarán los usuarios con ella. 
+            </p>
+            <p>
+                También es una herramienta útil para detectar áreas de mejora. Los diseñadores pueden ver el sitio web desde la perspectiva de un visitante real, lo que les permite detectar cualquier error técnico o fallo que pueda afectar a la experiencia del usuario. 
+            </p>
+            <p>
+                Los diseñadores también pueden encontrar lagunas en el sitio web existente que deben llenarse con nuevos elementos, por ejemplo, la falta de un botón de llamada a la acción o de una imagen de apoyo. Al encontrar estas lagunas en el diagrama, los diseñadores pueden añadir la información que falta antes de que el sitio salga a la luz.
+            </p>
+        </div>
+        <h5 class="mb-3 text-primary">Wireframe vs. mockup: ¿Cuál es la diferencia?</h4>
+        <div  style="white-space: word-wrap: break-word;">
+            <p>
+                Un mockup es un wireframe de alta fidelidad. Es un diagrama visual con mucho más detalle que un wireframe de baja fidelidad.
+            </p>
+            <p>
+                •   Wireframe: Un simple plano que esboza la estructura de un producto o servicio.
+
+            </p>
+            <p>
+                •   Mockup: Un diagrama detallado e interactivo que muestra el aspecto del producto o servicio terminado.
+            </p>
+            <p>
+                Cuando se diseña una nueva pieza de software o se lanza un nuevo producto, el primer puerto de escala será un wireframe de baja fidelidad. Es un buen punto de partida para encontrar los pies y una gran manera de colaborar con los miembros del equipo sobre lo que funciona y lo que no.
+Una vez aprobado el esquema inicial, puedes empezar a pensar en añadir más detalles y elementos de diseño visual para crear un mockup. 
+            </p>
+        </div>
+    </div>
+
+    <h3 class="mb-4 titulo-galeria">Imagen Relacionada</h3>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card-galeria">
+                <img src="/static/wire.png" alt="Imagen relacionada" class="galeria-img"
+                     data-toggle="modal" data-target="#modalImagen"
+                     onclick="mostrarImagen('/static/wire.png')">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 🖼️ Modal para mostrar imagen ampliada -->
+<div class="modal fade" id="modalImagen" tabindex="-1" role="dialog" aria-labelledby="modalImagenLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content bg-dark">
+      <div class="modal-body text-center">
+        <img id="imagenModal" src="" class="img-fluid rounded" alt="Imagen ampliada">
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Parte de Diagramas ER -->
+ <div class="container py-5">
+    <div class="descripcion mb-5 px-3 py-4 bg-light rounded shadow-sm">
+        <h4 class="mb-3 text-primary">¿Qué es un modelo-entidad relación?</h4>
+        <div  style="white-space: word-wrap: break-word;">
+            <p>Un diagrama entidad-relación, también conocido como modelo entidad relación o ERD, es un tipo de diagrama de flujo que ilustra las "entidades" (personas, objetos o conceptos) que se relacionan entre sí dentro de un sistema. Los diagramas ER se usan a menudo para diseñar o depurar bases de datos relacionales en los campos de ingeniería de software, sistemas de información empresarial, educación e investigación. También conocidos como los ERD o modelos ER, emplean un conjunto definido de símbolos, tales como rectángulos, diamantes, óvalos y líneas de conexión para representar la interconexión de entidades, relaciones y sus atributos. Son un reflejo de la estructura gramatical y emplean entidades como sustantivos y relaciones como verbos.
+
+            </p>
+        </div>
+        <h5 class="mb-3 text-primary">Los componentes y las características de un diagrama ER</h4>
+        <div  style="white-space: word-wrap: break-word;">
+            <p>
+                Los diagramas ER se componen de entidades, relaciones y atributos. También representan la cardinalidad, que define las relaciones en términos de números. Puedes ver un glosario a continuación:
+            </p>
+            <h6>
+                Entidad
+            </h6>
+            <p>
+                Algo que se puede definir, como una persona, objeto, concepto u evento, que puede tener datos almacenados acerca de este. Piensa en las entidades como si fueran sustantivos. Por ejemplo: un cliente, estudiante, auto o producto. Por lo general se muestran como un rectángulo.
+            </p>
+            <h6>
+                Relación
+            </h6>
+            <p>
+                Cómo las entidades interactúan o se asocian entre sí. Piensa en las relaciones como si fueran verbos. Por ejemplo, el estudiante mencionado podría inscribirse en un curso. Las dos entidades serían el estudiante y el curso, y la relación representada es el acto de inscribirse, que conecta ambas entidades de ese modo. Las relaciones se muestran, por lo general, como diamantes o etiquetas directamente en las líneas de conexión.
+            </p>
+            <h6>
+                Atributo
+            </h6>
+            <p>
+                Una propiedad o característica de una entidad. A menudo se muestra como un óvalo o círculo.
+            </p>
+            <h6>
+                Cardinalidad
+            </h6>
+            <p>
+                Define los atributos numéricos de la relación entre dos entidades o conjuntos de entidades. Las tres relaciones cardinales principales son uno a uno, uno a muchos y muchos a muchos.
+            </p>
+        </div>
+    </div>
+
+    <h3 class="mb-4 titulo-galeria">Imagen Relacionada</h3>
+
+    <div class="row">
+        <div class="col-md-4 mb-4">
+            <div class="card-galeria">
+                <img src="/static/diagrama2.jpg" alt="Imagen relacionada" class="galeria-img"
+                     data-toggle="modal" data-target="#modalImagen"
+                     onclick="mostrarImagen('/static/diagrama2.jpg')">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 🖼️ Modal para mostrar imagen ampliada -->
+<div class="modal fade" id="modalImagen" tabindex="-1" role="dialog" aria-labelledby="modalImagenLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content bg-dark">
+      <div class="modal-body text-center">
+        <img id="imagenModal" src="" class="img-fluid rounded" alt="Imagen ampliada">
+      </div>
+    </div>
+  </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    function mostrarImagen(url) {
+        document.getElementById('imagenModal').src = url;
+    }
+</script>
+{% endblock %}

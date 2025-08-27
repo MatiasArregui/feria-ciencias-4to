@@ -24,4 +24,7 @@ def proyectoDetalle(request, pk):
     context= {"proyecto" : proyecto, "imagenes" : imagenes}
     return render(request, os.path.join("detalleProyecto.html"), context=context)
 
+def proyectoDetalleGuia(request):
+    return render(request, os.path.join("detalle_proyecto.html"))
+
         

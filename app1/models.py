@@ -23,3 +23,4 @@ class Imagen(models.Model):
     imagen = models.ImageField(upload_to='publicaciones/', blank=True, null=True)
     def __str__(self):
         return str(self.id)
+    
